@@ -1,0 +1,44 @@
+{
+  "name": "Playlist exporter for Google Play Music™",
+  "version": "1.0",
+  "description": "Export your Google Play Music™ Playlists",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action" : {
+    "default_popup": "popup.html",
+    "default_icon" : {
+      "16": "images/icon-16.png",
+      "24": "images/icon-24.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "64": "images/icon-64.png",
+      "128": "images/icon-128.png"
+    },
+    "default_title" : "Playlist exporter for Google Play Music™"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://play.google.com/music/*"],
+      "run_at": "document_end",
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "downloads",
+    "https://play.google.com/music/*/pl/",
+    "activeTab",
+    "declarativeContent"
+  ],
+  "icons" : {
+    "16": "images/icon-16.png",
+    "24": "images/icon-24.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "64": "images/icon-64.png",
+    "128": "images/icon-128.png"
+  },
+  "manifest_version": 2
+}
